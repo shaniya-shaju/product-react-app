@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navigation from './Navigation'
 
 const ProductView = () => {
+          const[data,changeData] =useState(
+            [
+              {"name":"Matte Lipstick","avatar":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyz8SBpMjcKG-YpVdvBtpzr4FWWztax6f-IRCb2c0gyA&s","Price":"₹499"},
+              {"name":"Smart Watch","avatar":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxuQJ-2Z7Bl4_FIIqkyb2xHdyt-g84LMpIcjFfDmQ3FA&s=10","Price":"₹1,299"},
+              {"name":"Book","avatar":"https://unblast.com/wp-content/uploads/2025/07/Editorial-Book-Mockup-.jpg","Price":"₹50"},
+              {"name":"Laptop Cover","avatar":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxlwX79L8WtCYvUexr2OgsKNx4YqJ5XJ1r07_4WVXzOA&s","Price":"₹999"},
+              {"name":"Mouse","avatar":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzZU6Hsws-OxUloDw5tiqzuz2kVLlcejABp6uL210Abg&s=10","Price":"₹1,899"},
+              {"name":"Keyboard","avatar":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLMXxmQZAbmTdnhv1fwXBL0Di7whojeNmktakJf2KkJw&s=10","Price":"₹1,599"},
+              {"name":"Perfume","avatar":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_izNixmgPhPHRSOKKobs0uMZ0Zycrv7nezVfsT1f__A&s","Price":"₹899"},
+              {"name":"Earpod","avatar":"https://www.boat-lifestyle.com/cdn/shop/files/ACCG6DS7WDJHGWSH_0.png?v=1727669669","Price":"₹2,299"},
+              {"name":"Mobile Cover","avatar":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWT20Ifq4VykmftUF-ySxTL8iZeoyac_EaiY_0l8TbYw&s","Price":"₹299"},
+              {"name":"Bluetooth speaker","avatar":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGfA9M99SeC3dnOhzsLnr-uVIXKgrOQARkWJhbwpZeWw&s=10","Price":"₹1,299"},
+              {"name":"Running Shoes","avatar":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWHxxUkoUgvCSrwp4BSU_INMd6WW_SUezZqxuj2CFyVw&s=10","Price":"₹3,299"},
+            ]
+          )
   return (
     <div>
       <Navigation />
@@ -9,18 +24,21 @@ const ProductView = () => {
       <div className="container mt-4">
         <div className="row g-4">
 
-          <div className="col-12 col-sm-6 col-md-6 col-lg-4">
+          {data.map(
+            (value,index) =>{
+              return (
+                <div className="col-12 col-sm-6 col-md-6 col-lg-4">
             <div className="card h-100">
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyz8SBpMjcKG-YpVdvBtpzr4FWWztax6f-IRCb2c0gyA&s"
+                src={value.avatar}
                 className="card-img-top"
                 alt="Matte Lipstick"
                 height="300"
               />
               <div className="card-body">
-                <h5 className="card-title">Matte Lipstick</h5>
+                <h5 className="card-title">{value.name}</h5>
                 <p className="card-text">
-                  <strong>Price: ₹499</strong>
+                  <strong>{value.Price}</strong>
                 </p>
                 <button className="btn btn-primary">
                   Add to Cart
@@ -28,180 +46,9 @@ const ProductView = () => {
               </div>
             </div>
           </div>
-          {/* Card 5 */}
-<div className="col-12 col-sm-6 col-md-6 col-lg-4">
-  <div className="card h-100">
-    <img
-      src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500"
-      className="card-img-top"
-      alt="Backpack"
-      height="300"
-    />
-    <div className="card-body">
-      <h5 className="card-title">Laptop Backpack</h5>
-      <p className="card-text">
-        <strong>Price: ₹1,299</strong>
-      </p>
-      <button className="btn btn-primary">Add to Cart</button>
-    </div>
-  </div>
-</div>
-
-{/* Card 6 */}
-<div className="col-12 col-sm-6 col-md-6 col-lg-4">
-  <div className="card h-100">
-    <img
-      src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=500"
-      className="card-img-top"
-      alt="Gaming Mouse"
-      height="300"
-    />
-    <div className="card-body">
-      <h5 className="card-title">Gaming Mouse</h5>
-      <p className="card-text">
-        <strong>Price: ₹899</strong>
-      </p>
-      <button className="btn btn-primary">Add to Cart</button>
-    </div>
-  </div>
-</div>
-
-{/* Card 7 */}
-<div className="col-12 col-sm-6 col-md-6 col-lg-4">
-  <div className="card h-100">
-    <img
-      src="https://images.unsplash.com/photo-1589003077984-894e133dabab?w=500"
-      className="card-img-top"
-      alt="Bluetooth Speaker"
-      height="300"
-    />
-    <div className="card-body">
-      <h5 className="card-title">Bluetooth Speaker</h5>
-      <p className="card-text">
-        <strong>Price: ₹1,599</strong>
-      </p>
-      <button className="btn btn-primary">Add to Cart</button>
-    </div>
-  </div>
-</div>
-
-{/* Card 8 */}
-<div className="col-12 col-sm-6 col-md-6 col-lg-4">
-  <div className="card h-100">
-    <img
-      src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500"
-      className="card-img-top"
-      alt="Sunglasses"
-      height="300"
-    />
-    <div className="card-body">
-      <h5 className="card-title">Sunglasses</h5>
-      <p className="card-text">
-        <strong>Price: ₹799</strong>
-      </p>
-      <button className="btn btn-primary">Add to Cart</button>
-    </div>
-  </div>
-</div>
-
-{/* Card 9 */}
-<div className="col-12 col-sm-6 col-md-6 col-lg-4">
-  <div className="card h-100">
-    <img
-      src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=500"
-      className="card-img-top"
-      alt="Perfume"
-      height="300"
-    />
-    <div className="card-body">
-      <h5 className="card-title">Perfume</h5>
-      <p className="card-text">
-        <strong>Price: ₹1,499</strong>
-      </p>
-      <button className="btn btn-primary">Add to Cart</button>
-    </div>
-  </div>
-</div>
-
-{/* Card 10 */}
-<div className="col-12 col-sm-6 col-md-6 col-lg-4">
-  <div className="card h-100">
-    <img
-      src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=500"
-      className="card-img-top"
-      alt="Leather Wallet"
-      height="300"
-    />
-    <div className="card-body">
-      <h5 className="card-title">Leather Wallet</h5>
-      <p className="card-text">
-        <strong>Price: ₹999</strong>
-      </p>
-      <button className="btn btn-primary">Add to Cart</button>
-    </div>
-  </div>
-</div>
-
-          <div className="col-12 col-sm-6 col-md-6 col-lg-4">
-            <div className="card h-100">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRioX0RVFTZMuAm0TeZQ3UBGYdY7sfY3Kj14FxdcMTkGA&s=10"
-                className="card-img-top"
-                alt="Wireless Headphones"
-                height="300"
-              />
-              <div className="card-body">
-                <h5 className="card-title">Wireless Bluetooth Headphones</h5>
-                <p className="card-text">
-                  <strong>Price: ₹1,999</strong>
-                </p>
-                <button className="btn btn-primary">
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-12 col-sm-6 col-md-6 col-lg-4">
-            <div className="card h-100">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKIhldUqWGrjnOi-rnT6-Ix37z6BUyZLHQrpa4fdvv0Q&s=10"
-                className="card-img-top"
-                alt="Smart Watch"
-                height="300"
-              />
-              <div className="card-body">
-                <h5 className="card-title">Smart Watch</h5>
-                <p className="card-text">
-                  <strong>Price: ₹2,499</strong>
-                </p>
-                <button className="btn btn-primary">
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-12 col-sm-6 col-md-6 col-lg-4">
-            <div className="card h-100">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWHxxUkoUgvCSrwp4BSU_INMd6WW_SUezZqxuj2CFyVw&s=10"
-                className="card-img-top"
-                alt="Running Shoes"
-                height="300"
-              />
-              <div className="card-body">
-                <h5 className="card-title">Running Shoes</h5>
-                <p className="card-text">
-                  <strong>Price: ₹3,299</strong>
-                </p>
-                <button className="btn btn-primary">
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
-
+              )
+            }
+          )}
         </div>
       </div>
     </div>
